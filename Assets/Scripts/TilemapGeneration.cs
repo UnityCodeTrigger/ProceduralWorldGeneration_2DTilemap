@@ -7,9 +7,7 @@ using UnityEngine.Tilemaps;
 public class TilemapGeneration : MonoBehaviour
 {
     [Header("Tilemaps")]
-    [SerializeField] Tilemap colliderTilemap;
-    //[SerializeField] Tilemap colliderTilemap;
-    //[SerializeField] Tilemap colliderTilemap;
+    [SerializeField] Tilemap tilemap;
 
     int[,] map;
 
@@ -45,7 +43,7 @@ public class TilemapGeneration : MonoBehaviour
 
     public Vector3Int WorldToMapCoordinate(Vector3 worldPos)
     {
-        return colliderTilemap.WorldToCell(worldPos);
+        return tilemap.WorldToCell(worldPos);
     }
 
     public void SetTile(Vector3Int pos, int id)
@@ -72,8 +70,8 @@ public class TilemapGeneration : MonoBehaviour
 
     void GenerateTilemap()
     {
-        if (colliderTilemap == null) colliderTilemap = GetComponent<Tilemap>();
-        colliderTilemap.ClearAllTiles();
+        if (tilemap == null) tilemap = GetComponent<Tilemap>();
+        tilemap.ClearAllTiles();
 
         for (int x = 0; x < width; x++)
         {
@@ -81,7 +79,7 @@ public class TilemapGeneration : MonoBehaviour
             {
                 if (map[x, y] >= 1)
                 {
-                        colliderTilemap.SetTile(new Vector3Int(x, y), GetTile(x, y));
+                        tilemap.SetTile(new Vector3Int(x, y), GetTile(x, y));
                 }
             }
         }
@@ -90,10 +88,10 @@ public class TilemapGeneration : MonoBehaviour
     void ModifyTilemap(int x, int y)
     {
         if (map[x, y] == 0)
-            colliderTilemap.SetTile(new Vector3Int(x, y), null);
+            tilemap.SetTile(new Vector3Int(x, y), null);
         else
         {
-            colliderTilemap.SetTile(new Vector3Int(x, y), GetTile(x, y));
+            tilemap.SetTile(new Vector3Int(x, y), GetTile(x, y));
         }
 
         for (int _x = x - 1; _x <= x + 1; _x++)
@@ -101,7 +99,7 @@ public class TilemapGeneration : MonoBehaviour
             for (int _y = y - 1; _y <= y + 1; _y++)
             {
                 if (map[_x, _y] == 1)
-                    colliderTilemap.SetTile(new Vector3Int(_x, _y), GetTile(_x, _y));
+                    tilemap.SetTile(new Vector3Int(_x, _y), GetTile(_x, _y));
             }
         }
     }
