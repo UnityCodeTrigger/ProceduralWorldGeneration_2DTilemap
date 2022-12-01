@@ -7,7 +7,7 @@ using UnityEngine.Tilemaps;
 public class TilemapGeneration : MonoBehaviour
 {
     [Header("Tilemaps")]
-    [SerializeField] Tilemap tilemap;
+    Tilemap tilemap;
 
     int[,] map;
 
