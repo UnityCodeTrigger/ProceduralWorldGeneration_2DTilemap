@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8927da1030de1eb48b3cd93cd520447a, type: 3}
+  m_Name: heathNoisemap
+  m_EditorClassIdentifier: 
+  width: 128
+  height: 128
+  waves:
+  - seed: 0
+    frequency: 0.04
+    amplitude: 1
+  - seed: 0
+    frequency: 0.02
+    amplitude: 0.5
+  noiseMapTexture: {fileID: 0}
